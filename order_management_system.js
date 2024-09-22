@@ -53,3 +53,17 @@ function placeOrder(customerName, orderedItems) {
     status: 'Pending'
   };
 }
+
+//task 4
+
+function calculateOrderTotal(order) {
+  let total = 0;
+  for (let item of order.items) {
+    const product = inventory.find(product => product.name === item.name);
+    if (product) {
+      total += product.price * item.quantity;
+    }
+  }
+  return total;
+}
+
